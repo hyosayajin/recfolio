@@ -1,13 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+20&display=swap" rel="stylesheet" /> -->
+
+		<!-- Website informations -->
+
+		<title>Recfolio</title>
+		<meta rel="description" content="Simple description" />
+		<link rel="icon" type="image/svg+xml" href="/logo.jpg" />
+
+		<!-- Website informations -->
+	</head>
+	<body>
+		<div id="app" class="app">
+			<header id="header" class="header">
+				<div>
+					<div class="logo">
+						<img src="/logo.jpg" alt="website logo" />
+					</div>
+				</div>
+
+				<div>
+					<div class="button">
+						<span>menu</span>
+            <span>&#10064;</span>
+					</div>
+				</div>
+
+				<nav class="navigation">
+					<ul>
+						<li>
+							<a class="ucf" href="#">github</a>
+							<img src="" alt="github" />
+						</li>
+
+						<li>
+							<a class="ucf" href="#">instagram</a>
+							<img src="" alt="insta" />
+						</li>
+
+						<li>
+							<a class="ucf" href="#">youtube</a>
+							<img src="" alt="youtube" />
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<main id="main" class="main">
+				<div class="illus">
+					<!-- <img src="/public/illus.jpg" alt="" /> -->
+				</div>
+
+				<div class="description">
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum nemo numquam eveniet. In, sit pariatur provident obcaecati veniam sed dolor aliquid aspernatur amet suscipit repellat eligendi
+						voluptate ipsum nemo perferendis?
+					</p>
+				</div>
+			</main>
+
+			<footer id="footer" class="footer">
+				<div class="title">
+					<div>
+						<h1 class="h1">web developer</h1>
+
+						<a href="" class="button"> &#10147; </a>
+					</div>
+
+					<!-- <h2>Web developer</h2>
+					<div>
+						<img src="" />
+					</div> -->
+				</div>
+
+				<div class="cta">
+					<span>works</span>
+					<span>&commat;</span>
+				</div>
+			</footer>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>

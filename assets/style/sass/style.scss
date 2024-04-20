@@ -1,0 +1,302 @@
+// VARIABLES
+$px_16: 16px;
+$px_32: 32px;
+$px_64: 64px;
+$px_128: 128px;
+
+$border: 1px solid rgba(255, 255, 255, 0.1);
+
+// MIXIN
+
+// EXTENDS
+
+%jersey {
+	font-family: "Jersey 20", sans-serif;
+}
+
+%grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+%area-3 {
+	grid-template-areas: "first first second";
+}
+
+%img-size {
+	width: $px_32;
+}
+
+%img-size-64 {
+	width: $px_64;
+}
+
+%ucf {
+	display: inline-block;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+%rds {
+	border-radius: 4px;
+}
+
+// IMPORTS
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+20&display=swap");
+
+// GLOBAL RULES
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+
+	@extend %ucf;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+@font-face {
+	font-family: "Inconsolata";
+	src: url("/public/fonts/Inconsolata-Variable.ttf");
+}
+
+@font-face {
+	font-family: "Jersey 20";
+	src: url("/public/fonts/Jersey20-Regular.ttf");
+}
+
+// GENERAL
+
+:root {
+	font-family: "Inconsolata", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+
+	letter-spacing: 1.5px;
+	line-height: $px_32;
+
+	color: rgba(255, 255, 255, 0.87);
+
+	background-color: #060a1a;
+}
+
+.h1,
+.h2,
+.h3 {
+	@extend %jersey;
+
+	@extend %ucf;
+}
+
+.h1 {
+	font-size: 80px;
+}
+
+.app {
+	display: grid;
+	grid-template-rows: repeat(8, 1fr);
+
+	grid-template-areas: "header" "main" "main" "main" "main" "main" "footer" "footer";
+
+	height: 100vh;
+
+	padding: $px_32;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: $px_16;
+
+	> span {
+		&:first-child {
+			@extend %ucf;
+		}
+
+		&:not(span:first-child) {
+			font-size: $px_32;
+		}
+	}
+
+	img {
+		@extend %img-size;
+	}
+
+	cursor: pointer;
+}
+
+// HEADER
+
+.header {
+	grid-area: header;
+
+	@extend %grid-3;
+
+	grid-template-areas: "first second therd";
+}
+
+.header > * {
+	display: flex;
+	align-items: center;
+
+	&:not(*:has(.logo)) {
+		justify-content: center;
+
+		border-left: $border;
+		border-bottom: $border;
+
+		@extend %rds;
+	}
+
+	$areas: (
+		"1": first,
+		"2": second,
+		"3": therd,
+	);
+
+	@each $i, $area in $areas {
+		&:nth-child(#{$i}) {
+			grid-area: $area;
+		}
+	}
+}
+
+.logo img {
+	grid-area: first;
+
+	@extend %img-size;
+}
+
+.navigation > ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: $px_32;
+}
+
+.navigation li {
+	transition: 200ms;
+
+	&:hover {
+		& > img {
+			opacity: 1;
+		}
+	}
+}
+
+.navigation li > img {
+	opacity: 0;
+}
+
+// MAIN SECTION
+
+.main {
+	grid-area: main;
+
+	@extend %grid-3;
+
+	@extend %area-3;
+}
+
+.main > .illus {
+	grid-area: first;
+
+	padding: $px_16;
+
+	border-left: $border;
+	border-bottom: $border;
+
+	@extend %rds;
+
+	background-image: url("/public/illus.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	> img {
+		width: 80%;
+	}
+}
+
+.main > .description {
+	grid-area: second;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	> p {
+		padding-left: $px_32;
+		padding-right: $px_32;
+	}
+}
+
+// FOOTER
+
+.footer {
+	grid-area: footer;
+
+	@extend %grid-3;
+
+	@extend %area-3;
+}
+
+.footer > .title {
+	grid-area: first;
+	display: flex;
+	align-items: center;
+
+	> div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+
+		padding-right: $px_128;
+
+		a {
+			font-size: $px_64;
+		}
+	}
+}
+
+.footer > .cta {
+	grid-area: second;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: $px_32;
+
+	border-top: $border;
+	border-left: $border;
+
+	@extend %rds;
+
+	> span:first-child {
+		@extend %ucf;
+
+		font-family: "Jersey 20";
+		font-size: $px_64;
+	}
+
+	span:last-child {
+		font-size: $px_64;
+	}
+}

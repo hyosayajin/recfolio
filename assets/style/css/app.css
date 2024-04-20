@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+20&display=swap");
+.h1,
+.h2,
+.h3 {
+  font-family: "Jersey 20", sans-serif;
+}
+
+.footer, .main, .header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer, .main {
+  grid-template-areas: "first first second";
+}
+
+.logo img, .button img {
+  width: 32px;
+}
+
+.footer > .cta > span:first-child, .button > span:first-child, .h1,
+.h2,
+.h3, a {
+  display: inline-block;
+}
+.footer > .cta > span:first-child::first-letter, .button > span:first-child::first-letter, .h1::first-letter,
+.h2::first-letter,
+.h3::first-letter, a::first-letter {
+  text-transform: uppercase;
+}
+
+.footer > .cta, .main > .illus, .header > *:not(*:has(.logo)) {
+  border-radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("/public/fonts/Inconsolata-Variable.ttf");
+}
+@font-face {
+  font-family: "Jersey 20";
+  src: url("/public/fonts/Jersey20-Regular.ttf");
+}
+:root {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1.5px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #060a1a;
+}
+
+.h1 {
+  font-size: 80px;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-areas: "header" "main" "main" "main" "main" "main" "footer" "footer";
+  height: 100vh;
+  padding: 32px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+}
+.button > span:not(span:first-child) {
+  font-size: 32px;
+}
+.header {
+  grid-area: header;
+  grid-template-areas: "first second therd";
+}
+
+.header > * {
+  display: flex;
+  align-items: center;
+}
+.header > *:not(*:has(.logo)) {
+  justify-content: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.header > *:nth-child(1) {
+  grid-area: first;
+}
+.header > *:nth-child(2) {
+  grid-area: second;
+}
+.header > *:nth-child(3) {
+  grid-area: therd;
+}
+
+.logo img {
+  grid-area: first;
+}
+
+.navigation > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.navigation li {
+  transition: 200ms;
+}
+.navigation li:hover > img {
+  opacity: 1;
+}
+
+.navigation li > img {
+  opacity: 0;
+}
+
+.main {
+  grid-area: main;
+}
+
+.main > .illus {
+  grid-area: first;
+  padding: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-image: url("/public/illus.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.main > .illus > img {
+  width: 80%;
+}
+
+.main > .description {
+  grid-area: second;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main > .description > p {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.footer > .title {
+  grid-area: first;
+  display: flex;
+  align-items: center;
+}
+.footer > .title > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 128px;
+}
+.footer > .title > div a {
+  font-size: 64px;
+}
+
+.footer > .cta {
+  grid-area: second;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer > .cta > span:first-child {
+  font-family: "Jersey 20";
+  font-size: 64px;
+}
+.footer > .cta span:last-child {
+  font-size: 64px;
+}
+
+/*# sourceMappingURL=app.css.map */
