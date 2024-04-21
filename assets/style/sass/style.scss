@@ -46,7 +46,7 @@ $border: 1px solid rgba(255, 255, 255, 0.1);
 // IMPORTS
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+20&display=swap");
 
-// GLOBAL RULES
+// RESET RULES
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -82,6 +82,12 @@ img {
 // GENERAL
 
 :root {
+	--color-p: orangered;
+
+	--200ms: 200ms;
+	--300ms: 300ms;
+	--400ms: 400ms;
+
 	font-family: "Inconsolata", sans-serif;
 	font-weight: 400;
 	font-style: normal;
@@ -94,6 +100,17 @@ img {
 	background-color: #060a1a;
 }
 
+// # GLOBAL
+a,
+.anchor {
+	&:hover {
+		color: var(--color-p);
+
+		transition: color var(--200ms) ease-in-out;
+	}
+}
+
+// # CIBLING
 .h1,
 .h2,
 .h3 {
@@ -182,6 +199,45 @@ img {
 	@extend %img-size;
 }
 
+.menu {
+	position: relative;
+
+	margin-right: $px_64;
+
+	&:hover {
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&::before,
+	&::after {
+		position: absolute;
+		right: -64px;
+
+		width: $px_32;
+		height: $px_32;
+
+		font-size: $px_32;
+
+		transition: opacity var(--200ms) ease-in-out;
+	}
+
+	&::before {
+		content: "\2751";
+	}
+
+	&::after {
+		content: "\2750";
+
+		opacity: 0;
+	}
+}
+
 .navigation > ul {
 	display: flex;
 	align-items: center;
@@ -195,12 +251,21 @@ img {
 	&:hover {
 		& > img {
 			opacity: 1;
+			@extend %img-size;
 		}
 	}
 }
 
 .navigation li > img {
+	@extend %img-size;
+
+	vertical-align: middle;
+
+	filter: drop-shadow(0 0 8px);
+
 	opacity: 0;
+
+	transition: opacity var(--300ms) ease-in-out;
 }
 
 // MAIN SECTION
